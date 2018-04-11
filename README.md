@@ -12,7 +12,10 @@
  - make && ./alab
 
 ### To do list
- - [x] to implement maze solving algorithm
+ - [x] interactive presentation
+ - [x] verbose apresentation
+ - [x] create beta game
+ - [ ] to implement maze solving algorithm
  - [ ] to implement algorithm A* (A star)
  - [ ] implementar sounds
 
