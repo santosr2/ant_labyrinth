@@ -1,6 +1,17 @@
 #include"system.h"
 #include"game.h"
 
+static void PrintTabGame(WINDOW *win, int tabuleiro[][10]){
+    if(ps == NULL){
+        for(int i=0, x=55; i < 10; i++, x+=4){
+            for(int j=0, y=0; j < 10; j++, y++)
+                mvwprintw(win, y+2, x+2,(tabuleiro[j][i] == 0) ? " %d   " : "%d   ",tabuleiro[j][i]);
+            
+            wprintw(win, "\n");
+        }
+    }
+}
+
 void gameTab(WINDOW *win, int tabuleiro[][10]){
     
     const char *messages[] = {
@@ -9,8 +20,8 @@ void gameTab(WINDOW *win, int tabuleiro[][10]){
     };
 
     attron(A_BOLD);
-        mvprintw(4,8, messages[1]);
-        refresh();
+    mvprintw(4,8, messages[1]);
+    refresh();
     attroff(A_BOLD);
 
     int x, y, i, j, stop = 0;
@@ -22,7 +33,7 @@ void gameTab(WINDOW *win, int tabuleiro[][10]){
     x = 55;
     y = 0;
 
-    PrintTab(win, tabuleiro);
+    PrintTabGame(win, tabuleiro);
 
     while(1){
 

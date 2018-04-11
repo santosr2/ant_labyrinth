@@ -1,5 +1,5 @@
-#ifndef __INTERATIVO_H
-#define __INTERATIVO_H
+#ifndef __INTERACTIVE_H
+#define __INTERACTIVE_H
 
 void searchPath(WINDOW *win, int tabuleiro[][10], int, int);
 

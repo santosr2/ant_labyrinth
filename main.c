@@ -16,7 +16,7 @@ int main(void){ // ajustar responsividade
 
     if(!has_colors()){
         endwin();
-        printf("Error: Terminal nao suporta cores");
+        printf("Error: Terminal nao suporta cores\n");
         return 1;
     }
 
@@ -47,6 +47,12 @@ int main(void){ // ajustar responsividade
     // getyx(stdscr, y, x);
     // getbegyx(stdscr, ybeg, xbeg);
     getmaxyx(stdscr, ymax, xmax);
+
+    if(ymax <= 100 && xmax <= 100){
+        endwin();
+        printf("terminal muito pequeno, máxime seu terminal\n");
+        return 1;
+    }
 
     height = 20;
     width = 150;
@@ -90,11 +96,11 @@ int main(void){ // ajustar responsividade
     refresh();
 
     attron(A_REVERSE);
-        printw(" ctrl+c para sair ");
+    printw(" ctrl+c para sair ");
     attroff(A_REVERSE); 
 
     attron(COLOR_PAIR(2));
-        welcome(xmax/2 - 45, ymax/2 - 10);
+    welcome(xmax/2 - 45, ymax/2 - 10);
     attroff(COLOR_PAIR(2));
 
     // MENU
@@ -124,11 +130,14 @@ int main(void){ // ajustar responsividade
         case 1: // MODO VERBOSO bug
             mvprintw(ymax/2 - 20, xmax/2 - 10, "Modo Verboso");
             refresh();
-            
+
+            box(win_content, 0, 0);
+            wrefresh(win_content);
+
             searchPathVerbose(win_content, tabuleiro, 10, 10);
             wprintw(win_content, "\n");
 
-            box(win_content, 0, 0);
+            Print(win_content,ps);
             wrefresh(win_content);
             break;
         
@@ -148,9 +157,9 @@ int main(void){ // ajustar responsividade
     }
 
     attron(A_BLINK);
-        attron(A_BOLD);
-            mvprintw(ymax-3, xmax-65, " Created by: Rubens, Edieles, Tallys, Kervin & Renan ");
-        attroff(A_BOLD);
+    attron(A_BOLD);
+    mvprintw(ymax-3, xmax-45, " Created by: Rubens Santos <z1ron> ");
+    attroff(A_BOLD);
     attroff(A_BLINK);
 
     getch();

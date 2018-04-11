@@ -16,7 +16,6 @@ void welcome(int, int);
 int menu(WINDOW *, char **);
 int verifyPoint(Point *);
 void Print(WINDOW *, Point *);
-void PrintTab(WINDOW *, int tabuleiro[][10]);
 Point *init(Point *);
 void savePoint(Point *p);
 Point loadPoint(void);
