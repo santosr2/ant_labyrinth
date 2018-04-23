@@ -16,11 +16,11 @@ void gameTab(WINDOW *win, int tabuleiro[][10]){
     
     const char *messages[] = {
         "movimento invalido",                                       // 0
-        "tecle espaço para salvar o ponto atual ou remover o mesmo" // 1
+        "tecle espaço para salvar o ponto atual ou remover o mesmo, use as setas para movimentar" // 1
     };
 
     attron(A_BOLD);
-    mvprintw(4,8, messages[1]);
+    mvprintw(5,8, messages[1]);
     refresh();
     attroff(A_BOLD);
 
@@ -39,8 +39,6 @@ void gameTab(WINDOW *win, int tabuleiro[][10]){
 
         p->x = i;
         p->y = j;
-
-        wattron(win, COLOR_PAIR(3));
         
         if(verifyPoint(p)){
             wattron(win, COLOR_PAIR(1));
@@ -112,7 +110,7 @@ void gameTab(WINDOW *win, int tabuleiro[][10]){
 
                 break;
 
-            case 32:
+            case 32: // BACKSPACE
                 mvwprintw(win, 2,2, "salvo");
                 wrefresh(win);
                 if(verifyPoint(p))

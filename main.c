@@ -127,7 +127,7 @@ int main(void){ // ajustar responsividade
             wrefresh(win_content);
             break;
         
-        case 1: // MODO VERBOSO bug
+        case 1: // MODO VERBOSO
             mvprintw(ymax/2 - 20, xmax/2 - 10, "Modo Verboso");
             refresh();
 
@@ -158,7 +158,7 @@ int main(void){ // ajustar responsividade
 
     attron(A_BLINK);
     attron(A_BOLD);
-    mvprintw(ymax-3, xmax-45, " Created by: Rubens Santos <z1ron> ");
+    mvprintw(ymax-3, xmax-65, " Created by: Rubens, Edieles, Tallys, Kervin & Rennan ");
     attroff(A_BOLD);
     attroff(A_BLINK);
 
