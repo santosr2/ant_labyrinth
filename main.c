@@ -158,7 +158,8 @@ int main(void){ // ajustar responsividade
 
     attron(A_BLINK);
     attron(A_BOLD);
-    mvprintw(ymax-3, xmax-65, " Created by: Rubens, Edieles, Tallys, Kervin & Rennan ");
+    mvprintw(ymax-3, xmax-45, " Created by: Rubens Santos <z1ron> ");
+    refresh();
     attroff(A_BOLD);
     attroff(A_BLINK);
 
